@@ -1,0 +1,21 @@
+[debug] ----------------------------------------------------------------------
+[debug] Command:      D:\Program Files\nodejs\node.exe C:\Users\mathi\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase deploy --project army-list-app -p /
+[debug] CLI Version:  3.2.1
+[debug] Platform:     win32
+[debug] Node Version: v5.6.0
+[debug] Time:         Sun Jan 15 2017 17:57:11 GMT+0100 (Paris, Madrid)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[debug] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase"]
+[debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/army-list-app 
+[debug] <<< HTTP RESPONSE 200
+[debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/army-list-app/tokens 
+[debug] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'army-list-app'...
+[info] 
+[info] i  deploying hosting
+[info] +  database: rules ready to deploy.
+[info] i  hosting: preparing / directory for upload...
+[warn] !  Warning: Public directory does not contain index.html
+[debug] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/army-list-app/uploads/-KaY2viRHak08x6QOnpy?fileCount=37976&message= 

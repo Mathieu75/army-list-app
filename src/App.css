@@ -1,0 +1,326 @@
+/*border*/
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+
+.Menu{
+  border-left: 1px solid lightgray;
+}
+
+
+/* background and color */
+.Scheme-form-header,
+.Squad-form-header,
+.Army-header,
+.App-header,
+.App-Footer{
+  color: white;
+}
+.Scheme-form-header,
+.Squad-form-header,
+.Army-form,
+button.addinline,
+button.add{
+  background-color: darkslateblue;
+}
+
+.popup{
+  color: black;
+}
+
+form,
+.squad-details,
+.squad-details textarea{
+  background-color: bisque;
+}
+
+.SchemeDetails,
+.popup-content{
+  background-color: white;
+}
+
+.App-header,
+.App-Footer {
+  background-color: #222;
+}
+
+.App,
+input,
+select,
+textarea,
+.popup {
+  text-align: left;
+  font-size: 20px;
+}
+input, textarea {
+  padding-left: 5px;
+}
+.popup{
+  
+    text-transform: none;
+    font-weight: 400;
+}
+
+.App-logo {
+  height: 80px;
+}
+.App-header {
+  height: 80px;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+/* Close Button*/
+
+.header-buton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 60px;
+    text-align: center;
+    font-size: 70px;
+}
+.return-logo{
+  height: 40px;
+}
+
+/* add btn*/
+button.add{
+    border: none;
+    padding: 5px 10px
+}
+
+button.addinline{
+    border: none;
+}
+.Menu{
+  padding-left: 10px;  
+}
+.add-logo{
+  height: 40px;
+}
+
+/* Flex CSS */
+.App-Footer{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.SchemeDetails,
+.Army-app{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.squads,
+.Army-list{
+  flex: 1;
+}
+.Army-list,
+.Scheme-form,
+.scheme,
+.Squad-form,
+.Squad-form-form,
+.squad{
+  display: flex;
+  flex-direction: column;
+}
+
+.App-header{
+  display: flex;
+  flex-direction: row;
+}
+
+.Army-list-header,
+.Army-form-header,
+.Army-form,
+.Army-form-content,
+.Army-form-content form,
+form.inline,
+.Scheme-header,
+.Scheme-form-header,
+.Scheme-form-content,
+.Scheme-form-content form,
+.scheme-element,
+.Squad-form-header,
+.squad-name,
+.Squad-form-scheme,
+.squad-line{
+  display: flex;
+  justify-content :space-between;
+}
+
+.header-title,
+.squad-logo,
+.Scheme-form-army-name,
+.Squad-form-scheme-name,
+.Squad-form-scheme-pts,
+.popup-content{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.popup-buttons{
+  display: flex;
+  justify-content: space-around;
+}
+
+.Menu-List{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.popup{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Scheme custom CSS */
+.scheme-element-name,
+.Army-form-army-name,
+.Scheme-form-army-name,
+.Army-form-header,
+.Scheme-header,
+.form-name,
+.Squad-form-scheme{
+    width: 100%;
+    text-align: left;
+}
+.squad-details{
+    text-align: left;
+}
+.scheme-element-pts{
+  white-space: nowrap;
+  text-align: right;
+}
+.SchemeDetails{
+  position: absolute;
+  z-index: 50;
+  top:0;
+  width: 100%;
+}
+
+.squad-details{
+    padding: 10px 30px;
+    white-space: pre-line;
+}
+
+.popup-background{
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: rgba(50, 50, 50, 0.3);
+  z-index: 100;
+}
+.popup{
+  height: 100%;
+}
+.popup-content{
+  padding: 20px;
+}
+.popup-buttons{
+  margin-top: 10px; 
+}
+
+.popup-content{
+  z-index: 101;
+}
+
+form{
+    padding: 30px;
+}
+
+form.inline{
+  padding: 0;
+  width: 100%;
+}
+
+.Army-form-content form,
+.squad-name,
+.Scheme-form-content,
+.Scheme-form-content form{
+  width: 100%;
+}
+
+
+.header-title{
+  font-size: 30px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.scheme-element-name,
+.Squad-form-scheme-name,
+.squad-name,
+.Army-header,
+.Scheme-form-header,
+.Squad-form-scheme{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.Army-header,
+.Scheme-form-header,
+.Squad-form-header{
+  padding: 10px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.Army-form,
+.scheme-element,
+.squad-name{
+    padding: 10px 10px;
+}
+.button{
+  cursor:pointer;
+}
+.Squad-form-scheme-pts{
+  margin-right: 10px;
+}
+textarea { resize: vertical; }
+
+.export { 
+  background: none;
+  cursor: pointer;  
+}  
+.export,
+.import { 
+  padding: 5px 10px;
+}
+
+.import { 
+  color: white;
+  background: none;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.import [type=file] {
+    cursor: inherit;
+    display: block;
+    font-size: 999px;
+    filter: alpha(opacity=0);
+    min-height: 100%;
+    min-width: 100%;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 0;
+}
