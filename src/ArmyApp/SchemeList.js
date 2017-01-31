@@ -5,9 +5,7 @@ import ArmyAppUtils from './Utils/ArmyAppUtils';
 export default class SchemeList extends Component {
   constructor(props) {
     super(props);
-    this.state = { schemeDetails: [], army: this.props.army, schemes: [], points: [] };
-    this.showDetails = this.showDetails.bind(this);
-    this.closeDetails = this.closeDetails.bind(this);
+    this.state = {  army: this.props.army, schemes: [], points: [] };
     this.updatePoints = this.updatePoints.bind(this);
     this.updateSchemes = this.updateSchemes.bind(this);
   }
@@ -21,20 +19,6 @@ export default class SchemeList extends Component {
         points: results.points
       });
     });
-  }
-
-  showDetails(scheme) {
-    var sds = [];
-    this.props.hideArmies(this.state.army);
-    sds.push(<SchemeDetails 
-      scheme={scheme} 
-      army={this.state.army} 
-      close={this.closeDetails} 
-      updatePoints={this.updatePoints} 
-      key={"SchemeDetails" + scheme.schemeId} 
-      updateSchemes={this.updateSchemes}
-    />);
-    this.setState({ schemeDetails: sds });
   }
 
   updatePoints(scheme) {
@@ -57,30 +41,19 @@ export default class SchemeList extends Component {
     });
   }
 
-  closeDetails() {
-    this.props.showArmies();
-    this.setState({ schemeDetails: [] });
-  }
-
   render() {
     return (
 
       <div className="schemes" >
         {this.state.schemes.map((scheme) => {
           return (
-            <div className="scheme" key={"scheme" + scheme.schemeId}>
-              <div className="scheme-element">
-                <div className="scheme-element-name" onClick={this.showDetails.bind(this, scheme)}>
-                  {scheme.name}
-                </div>
-                <div className="scheme-element-pts">
-                  {this.state.points[scheme.schemeId]} pts
-                </div>
-              </div>
-              <div>
-                {this.state.schemeDetails}
-              </div>
-            </div>
+            <SchemeDetails 
+              scheme={scheme} 
+              army={this.state.army} 
+              hideArmies={this.props.hideArmies}
+              showArmies={this.props.showArmies}
+              key={"SchemeDetails" + scheme.schemeId} 
+            />
           );
         })}
       </div>
