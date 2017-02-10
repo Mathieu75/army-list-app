@@ -36,15 +36,13 @@ textarea,
 
 
 .import,
-.Scheme-form-header,
-.Squad-form-header,
-.Army-header,
+.line-header,
 .App-header,
+.slider,
 .App-Footer{
   color: white;
 }
-.Scheme-form-header,
-.Squad-form-header,
+.line-header,
 .Army-form,
 button.addinline,
 button.add{
@@ -67,6 +65,7 @@ form,
 }
 
 .App-header,
+.slider,
 .App-Footer {
   background-color: #222;
 }
@@ -89,7 +88,7 @@ input, textarea {
 }
 /* Close Button*/
 
-.header-buton {
+.header-button {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -117,15 +116,28 @@ button.addinline{
   height: 40px;
 }
 
+.arrow{
+  height: 40px;
+}
+img.arrow.up {
+    transform: rotate(90deg);
+}
+img.arrow.down {
+    transform: rotate(-90deg);
+}
+
 /* Flex CSS */
 .App-Footer{
   display: flex;
   justify-content: flex-start;
 }
 
+
 .SchemeDetails,
-.Army-app{
+.Armies,
+.Config{
   display: flex;
+  flex: 1;
   flex-direction: column;
   min-height: 100vh;
 }
@@ -142,7 +154,9 @@ button.addinline{
   flex-direction: column;
 }
 
-.App-header{
+.Army-app,
+.App-header,
+.squad-config{
   display: flex;
   flex-direction: row;
 }
@@ -155,11 +169,10 @@ button.addinline{
 form.inline,
 .scheme,
 .Scheme-header,
-.Scheme-form-header,
 .Scheme-form-content,
 .Scheme-form-content form,
 .scheme-element,
-.Squad-form-header,
+.line-header,
 .Squad-form-scheme,
 .squad-line{
   display: flex;
@@ -186,6 +199,7 @@ form.inline,
   flex-direction: row-reverse;
 }
 
+.squad-config,
 .popup{
   display: flex;
   justify-content: center;
@@ -210,8 +224,6 @@ form.inline,
   text-align: right;
 }
 .SchemeDetails{
-  position: absolute;
-  z-index: 50;
   top:0;
   left:0;
   width: 100%;
@@ -221,6 +233,8 @@ form.inline,
     padding: 10px 30px;
     white-space: pre-line;
 }
+
+
 
 .popup-background{
   position: fixed;
@@ -273,16 +287,14 @@ form.inline{
 .scheme-element-name,
 .Squad-form-scheme-name,
 .squad-name,
-.Army-header,
-.Scheme-form-header,
+.line-header,
 .Squad-form-scheme{
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-.Army-header,
-.Scheme-form-header,
-.Squad-form-header{
+
+.line-header{
   padding: 10px;
   text-transform: uppercase;
   font-weight: 600;
@@ -295,6 +307,7 @@ form.inline{
 
 .Army-form,
 .scheme-element,
+.squads-config,
 .squad-name{
     padding: 10px 10px;
 }
@@ -336,4 +349,65 @@ textarea { resize: vertical; }
     right: 0;
     text-align: right;
     top: 0;
+}
+
+/* responsive */
+
+
+
+@media screen and (max-width: 640px) {
+  .slider {
+    width: 80px;
+    position: fixed;
+    height: 100%;
+    left: 0px;
+    transition: all 250ms linear;
+  }
+
+  .slider-collapse .slider {
+    left: -80px;
+    transition: all 250ms linear;
+  }
+  .slider-mask {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media screen and (min-width: 641px) {
+  .squads-config{
+    display: flex;
+    justify-content :space-around;
+    flex-direction: row;
+  }
+  .squad-config{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .controls{
+    display: flex;
+    justify-content :space-between;
+    flex-direction: row;
+  }
+
+
+  img.arrow.up {
+      transform: rotate(0deg);
+  }
+  img.arrow.down {
+      transform: rotate(180deg);
+  }
+
+  .App-header .App-logo {
+    display: none;
+  }
+
+  .slider {
+    width: 80px;
+    height: 100%;
+    left: 0px;
+    transition: all 250ms linear;
+  }
 }

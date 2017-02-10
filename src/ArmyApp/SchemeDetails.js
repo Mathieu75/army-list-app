@@ -19,7 +19,6 @@ export default class SchemeDetails extends Component {
     };
 
     this.toggleshowSchemeForm = this.toggleshowSchemeForm.bind(this);
-    this.closeSquadList = this.closeSquadList.bind(this);
     this.showSquadList = this.showSquadList.bind(this);
     this.addMenu = this.addMenu.bind(this);
     this.updatePoints = this.updatePoints.bind(this);
@@ -67,22 +66,16 @@ export default class SchemeDetails extends Component {
   }
 
   showSquadList(scheme) {
-    var sds = [];
-    this.props.hideArmies(this.state.army);
-    sds.push(<SquadList
-      scheme={scheme}
-      army={this.state.army}
-      close={this.closeSquadList}
-      updatePoints={this.updatePoints}
-      key={"squadList" + scheme.schemeId}
-      updateSchemes={this.updateSchemes}
-      />);
-    this.setState({ squadList: sds });
-  }
-
-  closeSquadList() {
-    this.props.showArmies();
-    this.setState({ squadList: [] });
+    let item = {content : <SquadList
+        scheme={scheme}
+        army={this.state.army}
+        close={this.props.showArmies}
+        updatePoints={this.updatePoints}
+        key={"squadList" + scheme.schemeId}
+        updateSchemes={this.updateSchemes}
+      />
+    };
+    this.props.hideArmies(item);
   }
 
   toggleshowSchemeForm() {

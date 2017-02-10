@@ -145,7 +145,7 @@ export default class ArmyDetails extends Component {
             );
         } else {
             return (
-                <div className="Army-header" >
+                <div className="line-header" >
                     {this.state.army.name}
                 </div>
             );

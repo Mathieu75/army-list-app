@@ -119,10 +119,10 @@ export default class SquadList extends Component {
       <div className="SchemeDetails">
         <Header title="Schémas" />
         <div onClick={this.props.close}>
-          <BtnClose logo='w' logoClassName="header-buton" />
+          <BtnClose logo='w' logoClassName="header-button" />
         </div>
         <div className="Squad-form">
-          <div className="Squad-form-header">
+          <div className="line-header">
             <div className="Squad-form-scheme">
               <div className="Squad-form-scheme-name" onClick={this.showDetails}>
                 {this.state.scheme.name}

@@ -6,7 +6,7 @@ import Footer from './Footer';
 import Header from './Header';
 import ArmyForm from './ArmyForm';
 
-export default class Armylist extends Component {
+export default class ArmyApp extends Component {
     constructor() {
         super();
         this.state = { logoHeader: "w", showArmyForm: false, armies: [] };
@@ -77,22 +77,18 @@ export default class Armylist extends Component {
             });
         });
     }
-    hideArmies(army){
-        let armies=[];
-        armies.push(army);
-        this.setState({
-            armies: armies
-        });
+    hideArmies(item){
+        this.props.switchContent(item);
     }
 
     render() {
         return (
-            <div className="Army-app">
+            <div className="Armies">
                 <Header title="Armées" />
                 <div className="Army-list">
                     {this.renderArmyForm()}
                     <div className="add button" onClick={this.toggleshowArmyForm}>
-                        <BtnAdd logo={this.state.logoHeader} logoClassName="header-buton" />
+                        <BtnAdd logo={this.state.logoHeader} logoClassName="header-button" />
                     </div>
                     {this.state.armies.map((army) => {
                         return (
@@ -101,8 +97,8 @@ export default class Armylist extends Component {
                                     army={army}
                                     deleteArmy={this.deleteArmy.bind(this, army)}
                                     onUserInput={this.handleArmyInput}
-                                    showArmies={this.updateArmies.bind(this)}
-                                    hideArmies={this.hideArmies.bind(this, army)} />
+                                    showArmies={this.props.showArmies}
+                                    hideArmies={this.hideArmies.bind(this)} />
                             </div>
                         );
                     })}

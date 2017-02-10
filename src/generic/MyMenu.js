@@ -101,7 +101,7 @@ export default class MyMenu extends Component {
     renderPopupDelete(){
         if(this.state.showDelete){
             return(
-            <div className="popup-background">
+            <div className="popup-background" onClick={this.tooglePopupDelete.bind(this)}>
                 <div className="popup">
                     <div className="popup-content">
                         <div>
