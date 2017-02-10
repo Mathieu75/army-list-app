@@ -115,7 +115,7 @@ export default class SchemeDetails extends Component {
       );
     } else {
       return (
-        <div className="Squad-form-scheme" onClick={this.showSquadList.bind(this, this.state.scheme)}>
+        <div className="scheme-line" onClick={this.showSquadList.bind(this, this.state.scheme)}>
           <div className="Squad-form-scheme-name">
             {this.state.scheme.name}
           </div>
@@ -132,9 +132,6 @@ export default class SchemeDetails extends Component {
       <div className="scheme" key={"scheme" + this.state.scheme.schemeId}>
         {this.renderschemeForm()}
         {this.state.menu}
-        <div>
-          {this.state.squadList}
-        </div>
       </div>
     );
   }

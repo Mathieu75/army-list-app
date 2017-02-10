@@ -36,13 +36,17 @@ textarea,
 
 
 .import,
-.line-header,
+.Scheme-form-header,
+.Squad-form-header,
+.Army-header,
 .App-header,
 .slider,
 .App-Footer{
   color: white;
 }
-.line-header,
+
+.Scheme-form-header,
+.Squad-form-header,
 .Army-form,
 button.addinline,
 button.add{
@@ -145,6 +149,7 @@ img.arrow.down {
 .Army-list{
   flex: 1;
 }
+
 .Army-list,
 .Scheme-form,
 .Squad-form,
@@ -172,8 +177,10 @@ form.inline,
 .Scheme-form-content,
 .Scheme-form-content form,
 .scheme-element,
-.line-header,
+.Scheme-form-header,
+.Squad-form-header,
 .Squad-form-scheme,
+.scheme-line,
 .squad-line{
   display: flex;
   justify-content :space-between;
@@ -216,17 +223,28 @@ form.inline,
     width: 100%;
     text-align: left;
 }
+
+
+.scheme-line{
+    width: 50%;
+    flex:1;
+    text-align: left;
+}
+
 .squad-details{
     text-align: left;
 }
 .scheme-element-pts{
-  white-space: nowrap;
+  white-space: rap;
   text-align: right;
 }
+
+.Armies,
 .SchemeDetails{
+  flex:1;
   top:0;
   left:0;
-  width: 100%;
+  width: 50%;
 }
 
 .squad-details{
@@ -280,6 +298,9 @@ form.inline{
   padding: 11px 0 11px 10px;
 }
 
+.scheme-line{
+  white-space: nowrap;
+}
 .squad-points{
   white-space: nowrap;
   padding: 11px 0;
@@ -287,14 +308,18 @@ form.inline{
 .scheme-element-name,
 .Squad-form-scheme-name,
 .squad-name,
-.line-header,
+.Army-header,
+.Scheme-form-header,
 .Squad-form-scheme{
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
-.line-header{
+
+.Army-header,
+.Scheme-form-header,
+.Squad-form-header{
   padding: 10px;
   text-transform: uppercase;
   font-weight: 600;
@@ -392,10 +417,10 @@ textarea { resize: vertical; }
     flex-direction: row;
   }
 
-
   img.arrow.up {
       transform: rotate(0deg);
   }
+
   img.arrow.down {
       transform: rotate(180deg);
   }
