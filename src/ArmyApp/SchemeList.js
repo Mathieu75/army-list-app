@@ -52,6 +52,7 @@ export default class SchemeList extends Component {
               army={this.state.army} 
               hideArmies={this.props.hideArmies}
               showArmies={this.props.showArmies}
+              updateSchemes={this.updateSchemes}
               key={"SchemeDetails" + scheme.schemeId} 
             />
           );

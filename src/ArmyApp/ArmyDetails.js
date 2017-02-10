@@ -71,7 +71,8 @@ export default class ArmyDetails extends Component {
                 army={that.state.army}
                 showArmies={this.props.showArmies}
                 hideArmies={this.props.hideArmies}
-                onUserInput={that.handleUserInput} />);
+                onUserInput={this.handleUserInput}
+                addScheme={this.addScheme} />);
             that.setState({
                 schemeList: sl
             });

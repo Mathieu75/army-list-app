@@ -1,4 +1,5 @@
 import localforage from "localforage"
+import ConfigUtils from "./ConfigUtils";
 
 export default class ArmyAppUtils {
 
@@ -222,6 +223,16 @@ export default class ArmyAppUtils {
     }
     this.saveObject("schemes", results);
   }
+
+  static async duplicateScheme(scheme){
+    let squads = await this.getSquads(scheme);
+    let newS = await this.addScheme(scheme);
+    for(let squad of squads){
+      squad.schemeId = newS.schemeId;
+      await this.addSquad(squad);
+    }
+  }
+
   static async addSquad(squad) {
     const squadId = await this.getDataFromDB('squadId');
     squad.squadId = squadId;
@@ -240,13 +251,7 @@ export default class ArmyAppUtils {
   }
 
   static async getSquads(scheme){
-    let sortValues = {
-        "t":2,
-        "e":3,
-        "q":1,
-        "s":5,
-        "r":4 
-      }
+    let sortValues = await ConfigUtils.getSquadsConfig();
     let squads = await this.getDataFromDB("squads");
     if (squads === null || squads.length === 0) {
       squads = [];

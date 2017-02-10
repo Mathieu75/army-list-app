@@ -4,7 +4,6 @@ import Header from './Header';
 import Footer from './Footer';
 import BtnClose from '../generic/BtnClose';
 import SquadDetail from './SquadDetail';
-import SchemeForm from './SchemeForm';
 import MyMenu from '../generic/MyMenu';
 import ArmyAppUtils from './Utils/ArmyAppUtils';
 
@@ -24,11 +23,6 @@ export default class SquadList extends Component {
     this.addSquad = this.addSquad.bind(this);
     this.handleUserInput = this.handleUserInput.bind(this);
     this.addMenu = this.addMenu.bind(this);
-
-    this.renderschemeForm = this.renderschemeForm.bind(this);
-    this.toggleshowSchemeForm = this.toggleshowSchemeForm.bind(this);
-    this.updateScheme = this.updateScheme.bind(this);
-    this.deleteScheme = this.deleteScheme.bind(this);
 
     this.toggleshowSquadForm = this.toggleshowSquadForm.bind(this);
     this.updateSquads = this.updateSquads.bind(this);
@@ -96,37 +90,8 @@ export default class SquadList extends Component {
       add={this.toggleshowSquadForm}
       close={this.toggleshowSquadForm}
       edit={this.toggleshowSchemeForm}
-      delete={this.deleteScheme}
       />;
   }
-
-
-  toggleshowSchemeForm() {
-    this.setState(prevState => ({
-      showSchemeForm: !prevState.showSchemeForm
-    }));
-  }
-
-  updateScheme(scheme) {
-    event.preventDefault();
-    if (scheme.name) {
-      let m = []
-      this.setState({ menu: [] });
-      ArmyAppUtils.updateScheme(scheme).then(() => {
-        m.push(this.addMenu());
-        this.setState({
-          menu: m,
-          scheme: scheme
-        });
-      });
-    }
-  }
-  deleteScheme(){
-    ArmyAppUtils.deleteScheme(this.state.scheme).then((schemes)=>{
-      this.props.updateSchemes(schemes);
-    });
-  }
-
 
   renderSquadForm() {
     if (this.state.show) {
@@ -146,34 +111,8 @@ export default class SquadList extends Component {
       show: !prevState.show
     }));
   }
+  
 
-  renderschemeForm() {
-    if (this.state.showSchemeForm) {
-      return (
-        <div className="Scheme-header" >
-          <SchemeForm
-            addScheme={this.updateScheme}
-            toggleshowSchemeForm={this.toggleshowSchemeForm}
-            type="update"
-            formClass="inline"
-            scheme={this.state.scheme}
-            onUserInput={this.handleUserInput}
-            />
-        </div>
-      );
-    } else {
-      return (
-        <div className="Squad-form-scheme">
-          <div className="Squad-form-scheme-name" onClick={this.showDetails}>
-            {this.state.scheme.name}
-          </div>
-          <div className="Squad-form-scheme-pts">
-            {this.state.points} pts
-           </div>
-        </div>
-      );
-    }
-  }
 
   render() {
     return (
@@ -184,9 +123,14 @@ export default class SquadList extends Component {
         </div>
         <div className="Squad-form">
           <div className="Squad-form-header">
-
-            {this.renderschemeForm()}
-
+            <div className="Squad-form-scheme">
+              <div className="Squad-form-scheme-name" onClick={this.showDetails}>
+                {this.state.scheme.name}
+              </div>
+              <div className="Squad-form-scheme-pts">
+                {this.state.points} pts
+              </div>
+            </div>
             {this.state.menu}
 
 

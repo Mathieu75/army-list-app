@@ -11,8 +11,31 @@ body {
   border-left: 1px solid lightgray;
 }
 
+/* font size*/
+
+.header-title{
+  font-size: 30px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.App,
+input,
+select,
+textarea,
+.popup {
+  text-align: left;
+  font-size: 20px;
+}
+
+.App-intro {
+  font-size: large;
+}
 
 /* background and color */
+
+
+.import,
 .Scheme-form-header,
 .Squad-form-header,
 .Army-header,
@@ -48,14 +71,6 @@ form,
   background-color: #222;
 }
 
-.App,
-input,
-select,
-textarea,
-.popup {
-  text-align: left;
-  font-size: 20px;
-}
 input, textarea {
   padding-left: 5px;
 }
@@ -66,19 +81,11 @@ input, textarea {
 }
 
 .App-logo {
-  height: 80px;
+  height: 60px;
+  padding: 10px;
 }
 .App-header {
   height: 80px;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
 /* Close Button*/
 
@@ -128,7 +135,6 @@ button.addinline{
 }
 .Army-list,
 .Scheme-form,
-.scheme,
 .Squad-form,
 .Squad-form-form,
 .squad{
@@ -147,13 +153,13 @@ button.addinline{
 .Army-form-content,
 .Army-form-content form,
 form.inline,
+.scheme,
 .Scheme-header,
 .Scheme-form-header,
 .Scheme-form-content,
 .Scheme-form-content form,
 .scheme-element,
 .Squad-form-header,
-.squad-name,
 .Squad-form-scheme,
 .squad-line{
   display: flex;
@@ -163,7 +169,6 @@ form.inline,
 .header-title,
 .squad-logo,
 .Scheme-form-army-name,
-.Squad-form-scheme-name,
 .Squad-form-scheme-pts,
 .popup-content{
   display: flex;
@@ -208,6 +213,7 @@ form.inline,
   position: absolute;
   z-index: 50;
   top:0;
+  left:0;
   width: 100%;
 }
 
@@ -256,13 +262,14 @@ form.inline{
   width: 100%;
 }
 
-
-.header-title{
-  font-size: 30px;
-  text-transform: uppercase;
-  font-weight: 600;
+.Squad-form-scheme-name{
+  padding: 11px 0 11px 10px;
 }
 
+.squad-points{
+  white-space: nowrap;
+  padding: 11px 0;
+}
 .scheme-element-name,
 .Squad-form-scheme-name,
 .squad-name,
@@ -281,6 +288,11 @@ form.inline{
   font-weight: 600;
 }
 
+.scheme,
+.squad-line {
+    padding: 0 10px;
+}
+
 .Army-form,
 .scheme-element,
 .squad-name{
@@ -289,6 +301,7 @@ form.inline{
 .button{
   cursor:pointer;
 }
+.squad-points,
 .Squad-form-scheme-pts{
   margin-right: 10px;
 }
@@ -303,8 +316,8 @@ textarea { resize: vertical; }
   padding: 5px 10px;
 }
 
+
 .import { 
-  color: white;
   background: none;
   cursor: pointer;
   overflow: hidden;

@@ -40,7 +40,7 @@ export default class SchemeForm extends Component {
                     <input 
                         className="Scheme-form-army-name" 
                         type="text" 
-                        placeholder="Nom de la liste d'amrée" 
+                        placeholder="Nom de la liste d'armée" 
                         value={this.state.scheme.name}
                         onChange={this.updateScheme.bind(this,"name")} 
                     />

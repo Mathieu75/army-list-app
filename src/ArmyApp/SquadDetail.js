@@ -99,7 +99,7 @@ export default class SquadDetail extends Component {
       />;
   }
   showdDetails() {
-    if (this.state.showdDetails) {
+    if (this.state.showdDetails && this.state.squad.details) {
       return (
         <div className="squad-details" >
           {this.state.squad.details}
@@ -135,13 +135,10 @@ export default class SquadDetail extends Component {
           <img src={this.state.logos[this.state.squad.type]} className="add-logo" alt="logo" />
         </div>
         <div className="squad-name" onClick={this.handleToggleClick}>
-          
-          <div>
-            {this.state.squad.name}
-          </div>
-          <div >
-            {this.state.squad.points} pts
-          </div>
+          {this.state.squad.name}
+        </div>
+        <div className="squad-points">
+          {this.state.squad.points} pts
         </div>
         {this.state.menu}
       </div>
