@@ -72,6 +72,10 @@ export default class ArmyApp extends Component {
                 armiesFromDb = [];
                 ArmyAppUtils.initWebSQL();
             }
+            
+            armiesFromDb.sort((a, b)=> {
+            return a.name.localeCompare(b.name);
+            });
             this.setState({
                 armies: armiesFromDb
             });

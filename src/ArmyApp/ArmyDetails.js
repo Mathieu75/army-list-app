@@ -10,6 +10,7 @@ export default class ArmyDetails extends Component {
         super(props);
         
         this.state = {
+            schemaCount: "",
             schemeList: [],
             menu: [],
             showSchemeForm: false,
@@ -23,24 +24,63 @@ export default class ArmyDetails extends Component {
         this.renderSchemeForm = this.renderSchemeForm.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.addMenu = this.addMenu.bind(this);
+        this.updateSchemaList = this.updateSchemaList.bind(this);
+        this.toogleSchemaList = this.toogleSchemaList.bind(this);
+        this.updateSchemes = this.updateSchemes.bind(this);
     }
-
     componentWillMount(){
+        let m = []
+        m.push(this.addMenu());
+        this.setState({
+            menu:m
+        });
+        ArmyAppUtils.getSchemes(this.state.army).then((results) => {
+            if (results.schemes === null || results.schemes.length === 0) {
+                results.schemes = [];
+            }
+            if(results.schemes.length > 0){
+                this.setState({
+                    schemaCount: "(" + results.schemes.length + ")",
+                });
+            }
+        });
+    }
+    updateSchemaList(){
         let m = []
         m.push(this.addMenu());
         let sl = [];
         sl.push(<SchemeList
-            key={"SchemeList" + this.state.army} 
-            army={this.state.army} 
+            key={"SchemeList" + this.state.army.armyId}
+            army={this.state.army}
             showArmies={this.props.showArmies}
             hideArmies={this.props.hideArmies}
-            onUserInput={this.handleUserInput} />);
+            updateSchemes={this.updateSchemaList}
+            onUserInput={this.handleUserInput}
+            addScheme={this.addScheme} />);
         this.setState({
             schemeList: sl,
             menu:m
         });
+        ArmyAppUtils.getSchemes(this.state.army).then((results) => {
+            if (results.schemes === null || results.schemes.length === 0) {
+                results.schemes = [];
+            }
+            if(results.schemes.length > 0){
+                this.setState({
+                    schemaCount: "(" + results.schemes.length + ")",
+                });
+            }
+        });
     }
-
+    toogleSchemaList(){
+        if(this.state.schemeList.length>0){
+            this.setState({
+                schemeList: []
+            });
+        }else{
+            this.updateSchemaList();
+        }
+    }
     toggleshowSchemeForm() {
         this.setState(prevState => ({
             showSchemeForm: !prevState.showSchemeForm
@@ -58,26 +98,12 @@ export default class ArmyDetails extends Component {
         });
     }
     addScheme(scheme) {
-        let sl = [];
-        let m = [];
-        let that = this;
-        that.setState({
-            schemeList: sl,
+        this.setState({
+            schemeList: [],
             menu:[]
         });
         ArmyAppUtils.addScheme(scheme).then((scheme) => {
-            sl.push(<SchemeList 
-                key={"SchemeList" + scheme.schemeId} 
-                army={that.state.army}
-                showArmies={this.props.showArmies}
-                hideArmies={this.props.hideArmies}
-                onUserInput={this.handleUserInput}
-                addScheme={this.addScheme} />);
-            that.setState({
-                schemeList: sl
-            });
-            m.push(this.addMenu());
-            this.setState({menu:m});
+            this.updateSchemaList()
         });
     }
 
@@ -85,6 +111,7 @@ export default class ArmyDetails extends Component {
         this.setState({
             schemeList: schemes
         });
+        this.updateSchemaList();
     }
 
     renderSchemeForm() {
@@ -145,8 +172,8 @@ export default class ArmyDetails extends Component {
             );
         } else {
             return (
-                <div className="Army-header" >
-                    {this.state.army.name}
+                <div className="Army-header" onClick={this.toogleSchemaList}>
+                    {this.state.army.name} {this.state.schemaCount}
                 </div>
             );
         }

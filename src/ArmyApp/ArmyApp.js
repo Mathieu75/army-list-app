@@ -4,7 +4,9 @@ import ArmyList from './ArmyList';
 import Slider from '../generic/Slider'
 import Config from './config/Config'
 import logoApp from '../images/logo.png';
+import logoApp_w from '../images/logo_w.png';
 import logoConfig from '../images/config_o.png';
+import logoConfig_w from '../images/config_w.png';
 
 export default class ArmyApp extends Component {
     constructor() {
@@ -15,11 +17,15 @@ export default class ArmyApp extends Component {
                 {
                     type: "ArmyList",
                     logo: <img src={logoApp} className="App-logo" alt="logo" />,
+                    enable: <img src={logoApp} className="App-logo" alt="logo" />,
+                    disable: <img src={logoApp_w} className="App-logo" alt="logo" />,
                     content: <ArmyList key={"ArmyList-content"} switchContent={this.switchContent.bind(this)} showArmies={this.showArmies.bind(this)} />
                 },
                 {
                     type: "Config",
-                    logo: <img src={logoConfig} className="App-logo" alt="logo" />,
+                    logo: <img src={logoConfig_w} className="App-logo" alt="logo" />,
+                    enable: <img src={logoConfig} className="App-logo" alt="logo" />,
+                    disable: <img src={logoConfig_w} className="App-logo" alt="logo" />,
                     content: <Config key={"config-content"} />
                 }
             ]

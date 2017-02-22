@@ -12,7 +12,6 @@ body {
 }
 
 /* font size*/
-
 .header-title{
   font-size: 30px;
   text-transform: uppercase;
@@ -39,15 +38,21 @@ textarea,
 .Scheme-form-header,
 .Squad-form-header,
 .Army-header,
+.line-header,
 .App-header,
 .slider,
 .App-Footer{
   color: white;
 }
+.line-header a {
+  color: white;
+  text-decoration: none;
+}
 
 .Scheme-form-header,
 .Squad-form-header,
 .Army-form,
+.line-header,
 button.addinline,
 button.add{
   background-color: darkslateblue;
@@ -146,7 +151,8 @@ img.arrow.down {
   min-height: 100vh;
 }
 .squads,
-.Army-list{
+.Army-list,
+.Army-header {
   flex: 1;
 }
 
@@ -321,6 +327,12 @@ form.inline{
 .Scheme-form-header,
 .Squad-form-header{
   padding: 10px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.line-header{
+  padding: 20px;
   text-transform: uppercase;
   font-weight: 600;
 }

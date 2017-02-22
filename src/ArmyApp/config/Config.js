@@ -96,6 +96,10 @@ export default class Config extends Component {
             );
           })}
         </div>
+        <div className="line-header">
+            <a  target="_blank" href="https://army-list-app.firebaseapp.com">go to webiste</a>
+        </div>
+
       </div>
     );
   }

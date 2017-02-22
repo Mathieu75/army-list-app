@@ -38,6 +38,7 @@ export default class SchemeList extends Component {
         schemes: results.schemes,
         points: results.points
       });
+      this.props.updateSchemes(results.schemes);
     });
   }
 

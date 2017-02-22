@@ -174,6 +174,9 @@ export default class ArmyAppUtils {
         results.points[`${scheme.schemeId}`] = p;
       }
     }
+    results.schemes.sort((a, b)=> {
+      return a.name.localeCompare(b.name);
+    });
 
     return results;
   }
@@ -263,7 +266,10 @@ export default class ArmyAppUtils {
       }
     }
     results.sort((a, b)=> {
-      return sortValues[a.type]- sortValues[b.type];
+      if(sortValues[a.type] === sortValues[b.type]){
+        return a.name.localeCompare(b.name);
+      }
+      return sortValues[a.type] - sortValues[b.type];
     });
     return results;
   }

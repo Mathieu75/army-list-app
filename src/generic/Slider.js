@@ -41,6 +41,10 @@ export default class Slider extends Component {
   }
 
   switchContent(item) {
+    for(let it of this.props.menuItems){
+      it.logo = it.disable;
+    }
+    item.logo = item.enable;
     this.props.switchContent(item);
   }
 

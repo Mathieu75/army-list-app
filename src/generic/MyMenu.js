@@ -81,7 +81,8 @@ export default class MyMenu extends Component {
         }
     }
 
-    toogle() {
+    toogle(e) {
+        e.preventDefault();
         this.setState(prevState => ({
             expended: !prevState.expended,
             menuColor: !prevState.expended? this.state.defaultLogo:'o'
